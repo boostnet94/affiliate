@@ -5,27 +5,26 @@
   <title>Top NASA Scientist: Edison’s 7-second brain trick activates your super brain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts for modern look -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #5271ff;
+      --primary: #5058e6;
       --accent: #ff7a59;
-      --dark: #1c2237;
       --background: #f5f7fa;
-      --modal-bg: rgba(30, 41, 59, 0.97);
+      --modal-bg: rgba(32, 40, 72, 0.97);
       --card-bg: #fff;
-      --shadow: 0 8px 32px rgba(80,96,140,.13);
-      --radius: 20px;
+      --shadow: 0 8px 32px rgba(80,96,140,.15);
+      --radius: 22px;
     }
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
       font-family: 'Roboto', Arial, sans-serif;
-      background: url('background.jpg') no-repeat center center fixed, var(--background);
+      background: url('background.jpg') no-repeat center center fixed, linear-gradient(135deg, #c5d8ff 0%, #f2f6fc 100%);
       background-size: cover;
       min-height: 100vh;
-      color: var(--dark);
+      color: #20243a;
     }
     body {
       min-height: 100vh;
@@ -42,7 +41,7 @@
       z-index: 10;
       filter: drop-shadow(0 1px 8px rgba(0,0,0,0.11));
       border-radius: 10px;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.8);
       padding: 6px 12px;
       transition: width 0.2s;
     }
@@ -57,22 +56,21 @@
     }
     .headline {
       width: 95vw;
-      max-width: 620px;
+      max-width: 690px;
       color: #fff;
       font-family: 'Montserrat', sans-serif;
       font-size: 2.1rem;
-      font-weight: 800;
+      font-weight: 900;
       text-align: center;
-      margin-bottom: 18px;
-      background: linear-gradient(90deg, rgba(82,113,255,0.87) 0%, rgba(255,122,89,0.9) 100%);
+      margin-bottom: 26px;
+      background: linear-gradient(100deg, #5058e6 0%, #ff7a59 100%);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 24px 16px 20px 16px;
+      padding: 28px 16px 22px 16px;
       letter-spacing: 1.1px;
-      text-shadow: 0 3px 16px rgba(0,0,0,0.13);
+      text-shadow: 0 5px 24px rgba(0,0,0,0.18);
       border: 2.5px solid #fff;
     }
-
     .hero-image-container {
       display: flex;
       align-items: center;
@@ -82,53 +80,53 @@
       position: relative;
       width: 100%;
       cursor: pointer;
+      transition: transform 0.14s;
     }
     .hero-image {
       width: 100%;
-      max-width: 480px;
-      min-width: 240px;
+      max-width: 520px;
+      min-width: 220px;
       aspect-ratio: 16/9;
       object-fit: cover;
       border-radius: var(--radius);
-      box-shadow: 0 8px 48px rgba(40,64,120,.17), 0 1.5px 9px rgba(80,96,140,.13);
-      border: 4px solid #fff;
-      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 8px 48px rgba(40,64,120,.19), 0 1.5px 9px rgba(80,96,140,.15);
+      border: 5px solid #fff;
+      transition: transform 0.14s, box-shadow 0.14s;
+      background: #e0e6f4;
     }
     .hero-image-container:hover .hero-image {
       transform: scale(1.025);
-      box-shadow: 0 12px 54px rgba(40,64,120,.24), 0 2px 14px rgba(80,96,140,.17);
+      box-shadow: 0 15px 54px rgba(40,64,120,.24), 0 2px 14px rgba(80,96,140,.17);
     }
-
     .cta-link {
       margin-top: 0px;
       font-size: 1.25rem;
       font-weight: 700;
       color: #fff;
       background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-      border-radius: 12px;
-      padding: 16px 38px;
+      border-radius: 14px;
+      padding: 17px 44px;
       box-shadow: var(--shadow);
       text-decoration: none;
       cursor: pointer;
       border: none;
       outline: none;
       display: inline-block;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.13s;
       letter-spacing: 0.7px;
       margin-bottom: 18px;
     }
     .cta-link:hover {
       background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
       color: #fff;
-      box-shadow: 0 8px 36px rgba(82,113,255,0.18);
-      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 8px 36px rgba(82,113,255,0.14);
+      transform: translateY(-2px) scale(1.035);
     }
     .cta-link svg {
       vertical-align: middle;
       margin-left: 7px;
       margin-bottom: 2px;
     }
-
     /* Modal styles */
     .modal-bg {
       display: none;
@@ -220,12 +218,11 @@
       min-height: 1.2em;
       font-weight: 500;
     }
-
     /* Responsive styles */
     @media (max-width: 900px) {
       .headline {
-        font-size: 1.3rem;
-        padding: 12px 8px 10px 8px;
+        font-size: 1.12rem;
+        padding: 14px 8px 11px 8px;
       }
       .hero-image {
         max-width: 99vw;
@@ -247,13 +244,13 @@
         padding: 4px 8px;
       }
       .headline {
-        font-size: 1.05rem;
-        padding: 9px 3px 7px 3px;
+        font-size: 1.01rem;
+        padding: 8px 2px 7px 2px;
         max-width: 98vw;
       }
       .hero-image {
         width: 96vw;
-        min-width: 170px;
+        min-width: 135px;
       }
       .modal-card {
         max-width: 95vw;
@@ -312,8 +309,8 @@
         return false;
       }
       errorMsg.textContent = '';
-      // Redirect to affiliate link (replace with your real link)
-      window.location.href = "https://your-affiliate-link.com";
+      // Redirect to affiliate link
+      window.location.href = "https://forgeniuswave.com/DSvsl/#aff=boostnet";
       return false;
     };
     function validateEmail(email) {
