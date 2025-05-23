@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Claim Your Free Video!</title>
+  <title>Top NASA Scientist: Edison’s 7-second brain trick activates your super brain</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Fonts for modern look -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -10,11 +10,12 @@
     :root {
       --primary: #5271ff;
       --accent: #ff7a59;
+      --dark: #1c2237;
       --background: #f5f7fa;
-      --modal-bg: rgba(30, 41, 59, 0.95);
+      --modal-bg: rgba(30, 41, 59, 0.97);
       --card-bg: #fff;
       --shadow: 0 8px 32px rgba(80,96,140,.13);
-      --radius: 18px;
+      --radius: 20px;
     }
     html, body {
       height: 100%;
@@ -24,7 +25,7 @@
       background: url('background.jpg') no-repeat center center fixed, var(--background);
       background-size: cover;
       min-height: 100vh;
-      color: #2d334a;
+      color: var(--dark);
     }
     body {
       min-height: 100vh;
@@ -43,6 +44,7 @@
       border-radius: 10px;
       background: rgba(255,255,255,0.7);
       padding: 6px 12px;
+      transition: width 0.2s;
     }
     .center-container {
       min-height: 100vh;
@@ -51,63 +53,82 @@
       align-items: center;
       justify-content: center;
       z-index: 1;
+      padding: 70px 0 30px 0;
     }
+    .headline {
+      width: 95vw;
+      max-width: 620px;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, rgba(82,113,255,0.87) 0%, rgba(255,122,89,0.9) 100%);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 16px 20px 16px;
+      letter-spacing: 1.1px;
+      text-shadow: 0 3px 16px rgba(0,0,0,0.13);
+      border: 2.5px solid #fff;
+    }
+
     .hero-image-container {
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 30px;
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      cursor: pointer;
+      margin-bottom: 32px;
       max-width: 98vw;
+      position: relative;
+      width: 100%;
+      cursor: pointer;
     }
     .hero-image {
-      max-width: 90vw;
-      width: 460px;
-      height: auto;
+      width: 100%;
+      max-width: 480px;
+      min-width: 240px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
       border-radius: var(--radius);
-      box-shadow: 0 6px 48px rgba(80,96,140,.13);
-      display: block;
+      box-shadow: 0 8px 48px rgba(40,64,120,.17), 0 1.5px 9px rgba(80,96,140,.13);
+      border: 4px solid #fff;
+      transition: transform 0.15s, box-shadow 0.15s;
     }
-    .headline {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 90%;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.3rem;
-      font-weight: 800;
-      text-align: center;
-      padding: 16px 18px;
-      background: rgba(44,62,80,0.56);
-      border-radius: var(--radius);
-      text-shadow: 0 3px 16px rgba(0,0,0,0.24);
-      letter-spacing: 1.2px;
+    .hero-image-container:hover .hero-image {
+      transform: scale(1.025);
+      box-shadow: 0 12px 54px rgba(40,64,120,.24), 0 2px 14px rgba(80,96,140,.17);
     }
+
     .cta-link {
-      margin-top: 18px;
+      margin-top: 0px;
       font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: #fff;
-      border-radius: 8px;
-      padding: 10px 28px;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 12px;
+      padding: 16px 38px;
       box-shadow: var(--shadow);
       text-decoration: none;
       cursor: pointer;
-      transition: background .18s, color .18s;
       border: none;
       outline: none;
       display: inline-block;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.7px;
+      margin-bottom: 18px;
     }
     .cta-link:hover {
-      background: var(--accent);
+      background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
       color: #fff;
+      box-shadow: 0 8px 36px rgba(82,113,255,0.18);
+      transform: translateY(-2px) scale(1.03);
     }
+    .cta-link svg {
+      vertical-align: middle;
+      margin-left: 7px;
+      margin-bottom: 2px;
+    }
+
     /* Modal styles */
     .modal-bg {
       display: none;
@@ -150,7 +171,7 @@
       width: 100%;
       padding: 0.9em 1em;
       border-radius: 8px;
-      border: 1px solid #d4d7e1;
+      border: 1.5px solid #d4d7e1;
       font-size: 1em;
       margin-bottom: 1.1em;
       box-sizing: border-box;
@@ -165,7 +186,7 @@
       padding: 0.95em;
       border-radius: 8px;
       border: none;
-      background: var(--primary);
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
       color: #fff;
       font-size: 1.08em;
       font-family: 'Montserrat', sans-serif;
@@ -175,7 +196,7 @@
       transition: background .18s;
     }
     .modal-card button[type="submit"]:hover {
-      background: var(--accent);
+      background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 100%);
     }
     .modal-card .close-modal {
       position: absolute;
@@ -199,24 +220,40 @@
       min-height: 1.2em;
       font-weight: 500;
     }
+
     /* Responsive styles */
+    @media (max-width: 900px) {
+      .headline {
+        font-size: 1.3rem;
+        padding: 12px 8px 10px 8px;
+      }
+      .hero-image {
+        max-width: 99vw;
+      }
+      .logo {
+        top: 16px;
+        left: 13px;
+        width: 85px;
+      }
+    }
     @media (max-width: 600px) {
+      .center-container {
+        padding-top: 70px !important;
+      }
       .logo {
         top: 10px;
         left: 10px;
-        width: 75px;
+        width: 65px;
         padding: 4px 8px;
       }
       .headline {
-        font-size: 1.15rem;
-        padding: 10px 5px;
-      }
-      .center-container {
-        min-height: 90vh;
+        font-size: 1.05rem;
+        padding: 9px 3px 7px 3px;
+        max-width: 98vw;
       }
       .hero-image {
-        width: 99vw;
-        max-width: 99vw;
+        width: 96vw;
+        min-width: 170px;
       }
       .modal-card {
         max-width: 95vw;
@@ -228,11 +265,19 @@
 <body>
   <img src="logo.jpg" alt="Logo" class="logo">
   <div class="center-container">
+    <div class="headline">
+      Top NASA Scientist: Edison’s 7-second brain trick activates your super brain
+    </div>
     <div class="hero-image-container" id="openModal">
       <img src="image.jpg" alt="Free Video" class="hero-image">
-      <div class="headline">Unlock Your Free Training Video Now!</div>
     </div>
-    <button class="cta-link" id="ctaBtn">Grab your <span style="color:var(--primary);text-decoration:underline;">FREE video</span></button>
+    <button class="cta-link" id="ctaBtn">
+      Grab your <span style="text-decoration:underline;">FREE video</span>
+      <svg width="22" height="18" viewBox="0 0 20 18" fill="none">
+        <path d="M18 9L2 9" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 3L18 9L12 15" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
   <!-- Modal -->
   <div class="modal-bg" id="modalBg">
