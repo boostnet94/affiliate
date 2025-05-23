@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Claim Your Free Video!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #5271ff;
+      --accent: #ff7a59;
+      --background: #f5f7fa;
+      --modal-bg: rgba(30, 41, 59, 0.95);
+      --card-bg: #fff;
+      --shadow: 0 8px 32px rgba(80,96,140,.13);
+      --radius: 18px;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('background.jpg') no-repeat center center fixed, var(--background);
+      background-size: cover;
+      min-height: 100vh;
+      color: #2d334a;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      top: 32px;
+      left: 40px;
+      width: 120px;
+      height: auto;
+      z-index: 10;
+      filter: drop-shadow(0 1px 8px rgba(0,0,0,0.11));
+      border-radius: 10px;
+      background: rgba(255,255,255,0.7);
+      padding: 6px 12px;
+    }
+    .center-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+    .hero-image-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      cursor: pointer;
+      max-width: 98vw;
+    }
+    .hero-image {
+      max-width: 90vw;
+      width: 460px;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 48px rgba(80,96,140,.13);
+      display: block;
+    }
+    .headline {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      text-align: center;
+      padding: 16px 18px;
+      background: rgba(44,62,80,0.56);
+      border-radius: var(--radius);
+      text-shadow: 0 3px 16px rgba(0,0,0,0.24);
+      letter-spacing: 1.2px;
+    }
+    .cta-link {
+      margin-top: 18px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px 28px;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .18s, color .18s;
+      border: none;
+      outline: none;
+      display: inline-block;
+    }
+    .cta-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    /* Modal styles */
+    .modal-bg {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--modal-bg);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.22s;
+    }
+    .modal-bg.active {
+      display: flex;
+      animation: fadeIn 0.22s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+    .modal-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2.1rem 1.6rem 2.1rem;
+      max-width: 350px;
+      width: 94vw;
+      position: relative;
+      text-align: center;
+    }
+    .modal-card h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+    }
+    .modal-card input[type="email"] {
+      width: 100%;
+      padding: 0.9em 1em;
+      border-radius: 8px;
+      border: 1px solid #d4d7e1;
+      font-size: 1em;
+      margin-bottom: 1.1em;
+      box-sizing: border-box;
+      outline: none;
+      transition: border .15s;
+    }
+    .modal-card input[type="email"]:focus {
+      border-color: var(--primary);
+    }
+    .modal-card button[type="submit"] {
+      width: 100%;
+      padding: 0.95em;
+      border-radius: 8px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 1.08em;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(82,113,255,.18);
+      cursor: pointer;
+      transition: background .18s;
+    }
+    .modal-card button[type="submit"]:hover {
+      background: var(--accent);
+    }
+    .modal-card .close-modal {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 1.25em;
+      color: #a5b1c2;
+      cursor: pointer;
+      outline: none;
+      transition: color .15s;
+    }
+    .modal-card .close-modal:hover {
+      color: var(--primary);
+    }
+    .modal-card .error-message {
+      color: #ff5252;
+      font-size: 0.97em;
+      margin-bottom: 1em;
+      min-height: 1.2em;
+      font-weight: 500;
+    }
+    /* Responsive styles */
+    @media (max-width: 600px) {
+      .logo {
+        top: 10px;
+        left: 10px;
+        width: 75px;
+        padding: 4px 8px;
+      }
+      .headline {
+        font-size: 1.15rem;
+        padding: 10px 5px;
+      }
+      .center-container {
+        min-height: 90vh;
+      }
+      .hero-image {
+        width: 99vw;
+        max-width: 99vw;
+      }
+      .modal-card {
+        max-width: 95vw;
+        padding: 1.5rem 0.8rem 1.1rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.jpg" alt="Logo" class="logo">
+  <div class="center-container">
+    <div class="hero-image-container" id="openModal">
+      <img src="image.jpg" alt="Free Video" class="hero-image">
+      <div class="headline">Unlock Your Free Training Video Now!</div>
+    </div>
+    <button class="cta-link" id="ctaBtn">Grab your <span style="color:var(--primary);text-decoration:underline;">FREE video</span></button>
+  </div>
+  <!-- Modal -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal-card">
+      <button class="close-modal" id="closeModal" aria-label="Close">&times;</button>
+      <h2>Get Instant Access</h2>
+      <form id="signupForm" autocomplete="off" novalidate>
+        <div class="error-message" id="errorMsg"></div>
+        <input type="email" id="emailInput" placeholder="Your email address" required>
+        <button type="submit">Claim My Free Video</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    // Modal open/close
+    const modalBg = document.getElementById('modalBg');
+    const openModalTriggers = [document.getElementById('openModal'), document.getElementById('ctaBtn')];
+    const closeModalBtn = document.getElementById('closeModal');
+    openModalTriggers.forEach(el => el.onclick = () => { modalBg.classList.add('active'); document.getElementById('emailInput').focus(); });
+    closeModalBtn.onclick = () => modalBg.classList.remove('active');
+    window.onclick = e => { if (e.target === modalBg) modalBg.classList.remove('active'); }
+    window.onkeydown = e => { if (e.key === 'Escape') modalBg.classList.remove('active'); };
+
+    // Email validation & redirect
+    const signupForm = document.getElementById('signupForm');
+    const errorMsg = document.getElementById('errorMsg');
+    signupForm.onsubmit = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value.trim();
+      if (!validateEmail(email)) {
+        errorMsg.textContent = "Please enter a valid email address.";
+        return false;
+      }
+      errorMsg.textContent = '';
+      // Redirect to affiliate link (replace with your real link)
+      window.location.href = "https://your-affiliate-link.com";
+      return false;
+    };
+    function validateEmail(email) {
+      // Simple regex for email validation
+      return /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/.test(email);
+    }
+  </script>
+</body>
+</html>
